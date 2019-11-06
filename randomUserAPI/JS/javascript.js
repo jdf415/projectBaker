@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 	var radioGender = "male"
 
 	var url = "https://randomuser.me/api/?results=10&gender="+ radioGender;
@@ -9,11 +10,11 @@ $(document).ready(function(){
 
 	// add radio button listener
 	$("input[type=radio]").click(function(){
-		//grab value of the radio button
+		// erases previous ten
 		$("#results").empty();
-
+		//grab value of the radio button
 		radioGender = $("input[name='gender']:checked").val();
-
+		// grabs url with radioGender to get results
 		url = "https://randomuser.me/api/?results=10&gender="+ radioGender;
 
 		if(radioGender){
@@ -22,8 +23,9 @@ $(document).ready(function(){
 
 	});
 
-
+	// function to generate ten random ppl
 	function fetchInfo(url){
+		// using fetch
 		fetch(url)
 		.then((response) =>(response.json()))
 		.then(function(data){
@@ -31,7 +33,7 @@ $(document).ready(function(){
 			data.results.forEach(person =>{
 
 					p = ` 
-					<div class="well">
+					<div class="bg-light">
 						<img src="${person.picture.medium}" class="rounded-circle" alt="Cinque Terre">
 						<span><h2>First Name: ${person.name.first}</h2></span>
 						<span><h2>Laste Name: ${person.name.last}</h2></span>
