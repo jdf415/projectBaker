@@ -30,15 +30,14 @@ $(document).ready(function(){
 			
 			data.results.forEach(person =>{
 
-					p = ` <div class="well">
-
-					<img src="${person.picture.medium}" class="rounded-circle" alt="Cinque Terre">
-				
-					<span>${person.name.title}</span>
-					<span>${person.name.first}</span>
-					<span>${person.name.last}</span>
-					<span style="margin-left:420px;">Email: ${person.email}</span>
-
+					p = ` 
+					<div class="well">
+						<img src="${person.picture.medium}" class="rounded-circle" alt="Cinque Terre">
+						<span><h2>First Name: ${person.name.first}</h2></span>
+						<span><h2>Laste Name: ${person.name.last}</h2></span>
+						<span><h2>Age: ${person.dob.age}</h2></span>
+						<span><h6>Location: ${person.location.country}</h6></span>
+						<span style="margin-left:420px;"><h5>Email: ${person.email}</h5></span>
 					</div>
 					`;
 
